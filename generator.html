@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>VoxelForge Generator</title>
+
+
+<style>
+
+body {
+
+margin:0;
+
+background:#080b12;
+
+color:white;
+
+font-family:Arial, Helvetica, sans-serif;
+
+}
+
+
+/* Navigation */
+
+nav {
+
+height:70px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:0 60px;
+
+border-bottom:1px solid #162235;
+
+}
+
+
+.logo {
+
+font-size:32px;
+
+font-weight:900;
+
+letter-spacing:4px;
+
+background:linear-gradient(
+90deg,
+white,
+#1683ff
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+
+nav button {
+
+background:none;
+
+border:none;
+
+color:#aaa;
+
+margin-left:20px;
+
+cursor:pointer;
+
+}
+
+
+/* Main */
+
+.container {
+
+padding:50px;
+
+text-align:center;
+
+}
+
+
+
+h1 {
+
+font-size:45px;
+
+}
+
+
+
+/* Category buttons */
+
+
+.categories button {
+
+
+padding:12px 25px;
+
+margin:10px;
+
+border-radius:10px;
+
+border:1px solid #1683ff;
+
+background:#101621;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+
+.categories button:hover {
+
+background:#1683ff;
+
+box-shadow:
+0 0 20px #1683ff;
+
+}
+
+
+
+/* Search */
+
+
+input {
+
+width:400px;
+
+padding:15px;
+
+margin-top:30px;
+
+background:#101621;
+
+border:1px solid #1683ff;
+
+border-radius:10px;
+
+color:white;
+
+font-size:16px;
+
+}
+
+
+/* Cards */
+
+
+.items {
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+margin-top:50px;
+
+flex-wrap:wrap;
+
+}
+
+
+.card {
+
+width:220px;
+
+height:220px;
+
+background:#101621;
+
+border-radius:15px;
+
+border:1px solid #1683ff;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+box-shadow:
+0 0 12px rgba(22,131,255,.3);
+
+}
+
+
+.placeholder {
+
+font-size:60px;
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<nav>
+
+
+<div class="logo">
+VOXELFORGE
+</div>
+
+
+<div>
+
+<button>
+Home
+</button>
+
+<button>
+Image
+</button>
+
+<button>
+About
+</button>
+
+
+</div>
+
+
+</nav>
+
+
+
+
+<div class="container">
+
+
+<h1>
+Minecraft Generator
+</h1>
+
+
+<p>
+Choose a Minecraft block, mob or entity.
+</p>
+
+
+
+<div class="categories">
+
+
+<button>
+🧱 Blocks
+</button>
+
+
+<button>
+👾 Mobs
+</button>
+
+
+<button>
+📦 Entities
+</button>
+
+
+</div>
+
+
+
+
+<input placeholder="Search Minecraft...">
+
+
+
+
+
+<div class="items">
+
+
+
+<div class="card">
+
+<div class="placeholder">
+🟩
+</div>
+
+<h3>
+Grass Block
+</h3>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="placeholder">
+🪵
+</div>
+
+<h3>
+Oak Log
+</h3>
+
+</div>
+
+
+
+
+<div class="card">
+
+<div class="placeholder">
+💎
+</div>
+
+<h3>
+Diamond Block
+</h3>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</body>
+
+</html>

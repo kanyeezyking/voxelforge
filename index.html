@@ -25,7 +25,7 @@ font-family:Arial, Helvetica, sans-serif;
 }
 
 
-/* NAVIGATION */
+/* Navigation */
 
 nav {
 
@@ -69,13 +69,6 @@ text-shadow:
 
 
 
-.nav-buttons a {
-
-text-decoration:none;
-
-}
-
-
 .nav-buttons button {
 
 background:none;
@@ -93,6 +86,7 @@ cursor:pointer;
 }
 
 
+
 .nav-buttons button:hover {
 
 color:white;
@@ -101,21 +95,20 @@ color:white;
 
 
 
-/* HERO */
-
+/* Hero */
 
 .hero {
 
 text-align:center;
 
-padding:100px 20px 70px;
+padding:100px 20px 60px;
 
 }
 
 
 .hero h1 {
 
-font-size:60px;
+font-size:56px;
 
 margin:0;
 
@@ -135,9 +128,9 @@ color:transparent;
 
 .hero h2 {
 
-font-size:32px;
+font-size:30px;
 
-margin-top:15px;
+margin-top:10px;
 
 }
 
@@ -145,28 +138,27 @@ margin-top:15px;
 
 .hero p {
 
-max-width:700px;
-
-margin:25px auto;
+color:#9aa4b5;
 
 font-size:19px;
 
-line-height:1.7;
+max-width:700px;
 
-color:#9aa4b5;
+margin:20px auto;
+
+line-height:1.6;
 
 }
 
 
 
-/* BUTTONS */
-
+/* Buttons */
 
 .main-button {
 
-padding:15px 45px;
+margin:15px;
 
-margin:10px;
+padding:15px 40px;
 
 border-radius:14px;
 
@@ -185,6 +177,7 @@ transition:.25s;
 }
 
 
+
 .main-button:hover {
 
 background:#1683ff;
@@ -198,8 +191,7 @@ transform:translateY(-3px);
 
 
 
-/* FEATURE CARDS */
-
+/* Cards */
 
 .container {
 
@@ -211,7 +203,7 @@ gap:30px;
 
 flex-wrap:wrap;
 
-padding:30px;
+padding:20px;
 
 }
 
@@ -229,10 +221,10 @@ border-radius:18px;
 
 border:1px solid #1683ff;
 
-text-align:center;
-
 box-shadow:
-0 0 15px rgba(22,131,255,.3);
+0 0 15px rgba(22,131,255,.35);
+
+text-align:center;
 
 transition:.25s;
 
@@ -242,7 +234,7 @@ transition:.25s;
 
 .card:hover {
 
-transform:translateY(-6px);
+transform:translateY(-5px);
 
 box-shadow:
 0 0 30px rgba(22,131,255,.7);
@@ -250,11 +242,13 @@ box-shadow:
 }
 
 
+
 .card h2 {
 
 font-size:25px;
 
 }
+
 
 
 .card p {
@@ -266,9 +260,7 @@ line-height:1.6;
 }
 
 
-
-/* WORKFLOW */
-
+/* Workflow */
 
 .workflow {
 
@@ -281,10 +273,9 @@ padding:80px 20px;
 
 .workflow h2 {
 
-font-size:38px;
+font-size:35px;
 
 }
-
 
 
 .steps {
@@ -297,15 +288,14 @@ gap:25px;
 
 flex-wrap:wrap;
 
-}
+margin-top:40px;
 
+}
 
 
 .step {
 
 width:220px;
-
-padding:25px;
 
 background:#101621;
 
@@ -313,13 +303,17 @@ border:1px solid #1683ff;
 
 border-radius:15px;
 
-}
+padding:25px;
 
+box-shadow:
+0 0 12px rgba(22,131,255,.3);
+
+}
 
 
 .number {
 
-font-size:40px;
+font-size:35px;
 
 font-weight:bold;
 
@@ -328,17 +322,76 @@ color:#1683ff;
 }
 
 
-
 .step p {
 
 color:#aab3c2;
 
 }
+/* Features */
+
+.features {
+
+text-align:center;
+
+padding:40px 20px 80px;
+
+}
+
+
+.features h2 {
+
+font-size:35px;
+
+}
 
 
 
-/* FOOTER */
+.feature-grid {
 
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+margin-top:40px;
+
+}
+
+
+
+.feature {
+
+width:280px;
+
+background:#101621;
+
+border:1px solid #1683ff;
+
+border-radius:18px;
+
+padding:30px;
+
+box-shadow:
+0 0 15px rgba(22,131,255,.35);
+
+}
+
+
+
+.feature p {
+
+color:#aab3c2;
+
+line-height:1.6;
+
+}
+
+
+
+/* Footer */
 
 footer {
 
@@ -361,7 +414,6 @@ border-top:1px solid #162235;
 </head>
 
 
-
 <body>
 
 
@@ -381,32 +433,42 @@ VOXELFORGE
 
 
 <a href="index.html">
+
 <button>
 Home
 </button>
+
 </a>
+
 
 
 <a href="generator.html">
+
 <button>
 Generator
 </button>
+
 </a>
+
 
 
 <a href="image.html">
+
 <button>
 Image
 </button>
+
 </a>
+
 
 
 <a href="about.html">
+
 <button>
 About
 </button>
-</a>
 
+</a>
 
 
 </div>
@@ -422,24 +484,19 @@ About
 
 
 <h1>
-
 VOXELFORGE
-
 </h1>
 
 
+
 <h2>
-
 Minecraft structures, reimagined.
-
 </h2>
 
 
 
 <p>
-
-Transform Minecraft blocks, mobs, entities and images into detailed voxel structures, blueprints and future Minecraft-ready files.
-
+Convert Minecraft blocks, mobs, entities and images into detailed voxel structures ready to build inside Minecraft.
 </p>
 
 
@@ -448,7 +505,7 @@ Transform Minecraft blocks, mobs, entities and images into detailed voxel struct
 
 <button class="main-button">
 
-🧱 Open Generator
+Open Generator
 
 </button>
 
@@ -460,7 +517,7 @@ Transform Minecraft blocks, mobs, entities and images into detailed voxel struct
 
 <button class="main-button">
 
-🖼 Image Converter
+Image Mode
 
 </button>
 
@@ -479,6 +536,9 @@ Transform Minecraft blocks, mobs, entities and images into detailed voxel struct
 
 
 
+<a href="generator.html" style="text-decoration:none;color:white;">
+
+
 <div class="card">
 
 
@@ -488,55 +548,39 @@ Transform Minecraft blocks, mobs, entities and images into detailed voxel struct
 
 
 <p>
-
-Choose any Minecraft object and generate a detailed voxel structure.
-
+Choose Minecraft objects and transform them into custom voxel structures.
 </p>
-
-
-<a href="generator.html">
-
-<button class="main-button">
-
-Start
-
-</button>
-
-</a>
 
 
 </div>
 
 
+</a>
+
+
+
+
+
+<a href="image.html" style="text-decoration:none;color:white;">
 
 
 <div class="card">
 
 
 <h2>
-🖼 Image Mode
+🖼 Image Converter
 </h2>
 
 
 <p>
-
-Convert images, logos and artwork into Minecraft builds.
-
+Turn images, logos and artwork into Minecraft-style builds.
 </p>
 
 
-<a href="image.html">
+</div>
 
-<button class="main-button">
-
-Convert
-
-</button>
 
 </a>
-
-
-</div>
 
 
 
@@ -551,9 +595,7 @@ Convert
 
 
 <p>
-
-Create step-by-step building instructions layer by layer.
-
+Generate step-by-step building guides showing exactly where blocks go.
 </p>
 
 
@@ -572,9 +614,7 @@ Create step-by-step building instructions layer by layer.
 
 
 <p>
-
-Designed for future Minecraft exports and structure files.
-
+Designed for modern Minecraft versions with future compatibility.
 </p>
 
 
@@ -589,19 +629,17 @@ Designed for future Minecraft exports and structure files.
 
 
 
-
 <section class="workflow">
 
 
 <h2>
-
 How VoxelForge Works
-
 </h2>
 
 
 
 <div class="steps">
+
 
 
 <div class="step">
@@ -615,7 +653,7 @@ Choose
 </h3>
 
 <p>
-Select a block, mob, entity or image.
+Select a Minecraft object or upload an image.
 </p>
 
 </div>
@@ -634,11 +672,10 @@ Convert
 </h3>
 
 <p>
-Pixels are matched to Minecraft data.
+Textures and colours are converted into voxel data.
 </p>
 
 </div>
-
 
 
 
@@ -654,11 +691,10 @@ Generate
 </h3>
 
 <p>
-VoxelForge creates your structure.
+The voxel engine creates your structure.
 </p>
 
 </div>
-
 
 
 
@@ -670,11 +706,11 @@ VoxelForge creates your structure.
 </div>
 
 <h3>
-Build
+Export
 </h3>
 
 <p>
-Bring your creation into Minecraft.
+Export your build for Minecraft.
 </p>
 
 </div>
@@ -691,17 +727,77 @@ Bring your creation into Minecraft.
 
 
 
+<section class="features">
+
+
+<h2>
+VoxelForge Features
+</h2>
+
+
+
+<div class="feature-grid">
+
+
+
+<div class="feature">
+
+<h2>
+🎨 Texture Matching
+</h2>
+
+<p>
+Automatically match colours and Minecraft materials.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h2>
+🧊 Voxel Engine
+</h2>
+
+<p>
+Generate detailed 3D Minecraft structures.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h2>
+📦 NBT Export
+</h2>
+
+<p>
+Prepare structures for Minecraft-compatible files.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
 <footer>
 
-VoxelForge
+VoxelForge<br>
 
-<br><br>
+Minecraft Structure Generator<br><br>
 
-Minecraft Structure Generator
-
-<br><br>
-
-Version 1.0 Foundation
+Version 1.0
 
 </footer>
 

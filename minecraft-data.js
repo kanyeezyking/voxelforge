@@ -1,39 +1,45 @@
 const minecraftBlocks = [
 
 {
-name:"Grass Block",
-icon:"🟩",
-type:"block"
+name: "Grass Block",
+icon: "🟩",
+category: "building"
 },
 
 {
-name:"Stone",
-icon:"⬜",
-type:"block"
+name: "Stone",
+icon: "⬜",
+category: "building"
 },
 
 {
-name:"Dirt",
-icon:"🟫",
-type:"block"
+name: "Dirt",
+icon: "🟫",
+category: "natural"
 },
 
 {
-name:"Oak Log",
-icon:"🪵",
-type:"block"
+name: "Oak Log",
+icon: "🪵",
+category: "building"
 },
 
 {
-name:"Diamond Block",
-icon:"💎",
-type:"block"
+name: "Diamond Block",
+icon: "💎",
+category: "building"
 },
 
 {
-name:"Crafting Table",
-icon:"🛠️",
-type:"block"
+name: "Crafting Table",
+icon: "🛠️",
+category: "functional"
+},
+
+{
+name: "Command Block",
+icon: "🟧",
+category: "technical"
 }
 
 ];
@@ -43,20 +49,17 @@ const minecraftMobs = [
 
 {
 name:"Creeper",
-icon:"👾",
-type:"mob"
+icon:"👾"
 },
 
 {
 name:"Zombie",
-icon:"🧟",
-type:"mob"
+icon:"🧟"
 },
 
 {
 name:"Pig",
-icon:"🐷",
-type:"mob"
+icon:"🐷"
 }
 
 ];
@@ -66,14 +69,12 @@ const minecraftEntities = [
 
 {
 name:"Boat",
-icon:"🚣",
-type:"entity"
+icon:"🚣"
 },
 
 {
 name:"Minecart",
-icon:"🚋",
-type:"entity"
+icon:"🚋"
 }
 
 ];

@@ -277,14 +277,21 @@ Choose a Minecraft block, mob or entity.
 📦 Entities
 </button>
 
+<button onclick="changeType('all')">
 
+🌎 All
+
+</button>
+  
 </div>
 
 
 
 
-<input placeholder="Search Minecraft...">
-
+<input 
+id="search"
+placeholder="Search Minecraft..."
+onkeyup="loadItems()">
 
 
 
@@ -304,6 +311,9 @@ Choose a Minecraft block, mob or entity.
 
 let currentType = "block";
 
+let searchText = "";
+
+
 
 function loadItems(){
 
@@ -314,7 +324,16 @@ let container = document.getElementById("items");
 container.innerHTML = "";
 
 
+
+searchText = document
+.getElementById("search")
+.value
+.toLowerCase();
+
+
+
 let data;
+
 
 
 if(currentType === "block"){
@@ -324,11 +343,13 @@ data = minecraftBlocks;
 }
 
 
+
 if(currentType === "mob"){
 
 data = minecraftMobs;
 
 }
+
 
 
 if(currentType === "entity"){
@@ -337,6 +358,29 @@ data = minecraftEntities;
 
 }
 
+if(currentType === "all"){
+
+data = [
+...minecraftBlocks,
+...minecraftMobs,
+...minecraftEntities
+];
+
+}
+
+
+
+data = data.filter(item => {
+
+
+return item.name
+.toLowerCase()
+.includes(searchText);
+
+
+});
+
+
 
 
 data.forEach(item => {
@@ -344,13 +388,16 @@ data.forEach(item => {
 
 container.innerHTML += `
 
+
 <div class="card">
+
 
 <div class="placeholder">
 
 ${item.icon}
 
 </div>
+
 
 <h3>
 
@@ -360,6 +407,7 @@ ${item.name}
 
 
 </div>
+
 
 `;
 
@@ -371,17 +419,27 @@ ${item.name}
 
 
 
+
+
 function changeType(type){
+
 
 currentType = type;
 
+
 loadItems();
+
 
 }
 
 
 
+
 loadItems();
+
+
+
+</script>
 
 
 </script>

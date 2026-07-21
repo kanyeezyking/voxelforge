@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VoxelForge - Minecraft Structure Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>VoxelForge</h1>
+      <p>Upload a 16x16 texture to generate a 3D block sculpture structure for Minecraft (Compatible with 26.2+)</p>
+    </header>
+
+    <main>
+      <section class="controls">
+        <div class="upload-zone">
+          <label for="imageInput" class="custom-file-upload">
+            📁 Select 16x16 Image / Block Texture
+          </label>
+          <input type="file" id="imageInput" accept="image/*" />
+        </div>
+
+        <div class="options">
+          <label for="depthMode">3D Generation Style:</label>
+          <select id="depthMode">
+            <option value="solid">Full Solid 16x16x16 Cube</option>
+            <option value="hollow">Hollow Shell (Performance Friendly)</option>
+            <option value="flat">Flat 16x16 Wall (1 Block Deep)</option>
+          </select>
+        </div>
+
+        <button id="convertBtn" disabled>Convert to 16x16x16 Structure</button>
+      </section>
+
+      <section class="preview-section">
+        <div class="card">
+          <h3>Original 16x16 Texture</h3>
+          <canvas id="inputCanvas" width="16" height="16"></canvas>
+        </div>
+
+        <div class="card">
+          <h3>Pixel Color Matching Preview</h3>
+          <canvas id="outputCanvas" width="16" height="16"></canvas>
+        </div>
+      </section>
+
+      <section class="export-section">
+        <button id="downloadBtn" class="download-btn" disabled>⬇️ Download .mcfunction File</button>
+        <div class="instructions">
+          <h4>How to Import into Minecraft:</h4>
+          <ol>
+            <li>Download the generated <code>sculpture.mcfunction</code> file.</li>
+            <li>Place it in your world folder: <code>.minecraft/saves/YOUR_WORLD/datapacks/YOUR_DATAPACK/data/custom/function/</code></li>
+            <li>In-game, stand where you want the structure's bottom-left corner and run: <br/><code>/function custom:sculpture</code></li>
+          </ol>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

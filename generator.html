@@ -25,7 +25,6 @@ font-family:Arial, Helvetica, sans-serif;
 }
 
 
-
 /* NAVIGATION */
 
 nav {
@@ -43,7 +42,6 @@ padding:0 60px;
 border-bottom:1px solid #162235;
 
 }
-
 
 
 .logo {
@@ -68,14 +66,6 @@ color:transparent;
 
 
 
-.nav-buttons a {
-
-text-decoration:none;
-
-}
-
-
-
 nav button {
 
 background:none;
@@ -92,16 +82,6 @@ cursor:pointer;
 
 
 
-nav button:hover {
-
-color:white;
-
-}
-
-
-
-
-
 /* MAIN */
 
 .container {
@@ -113,7 +93,6 @@ text-align:center;
 }
 
 
-
 h1 {
 
 font-size:45px;
@@ -123,11 +102,17 @@ margin-bottom:10px;
 }
 
 
+.subtitle {
+
+color:#9aa4b5;
+
+font-size:18px;
+
+}
 
 
 
 /* BUTTONS */
-
 
 button {
 
@@ -139,7 +124,8 @@ font-family:inherit;
 
 .categories button,
 .mode-buttons button,
-.action-button {
+.generate-button,
+.export-button {
 
 padding:12px 25px;
 
@@ -163,7 +149,8 @@ transition:.2s;
 
 .categories button:hover,
 .mode-buttons button.active,
-.action-button:hover {
+.generate-button:hover,
+.export-button:hover {
 
 background:#1683ff;
 
@@ -174,10 +161,7 @@ box-shadow:
 
 
 
-
-
 /* SEARCH */
-
 
 #search {
 
@@ -201,9 +185,7 @@ font-size:16px;
 
 
 
-
-
-/* OBJECTS */
+/* OBJECT CARDS */
 
 
 .items {
@@ -219,8 +201,6 @@ margin-top:40px;
 flex-wrap:wrap;
 
 }
-
-
 
 
 
@@ -247,9 +227,6 @@ align-items:center;
 cursor:pointer;
 
 transition:.25s;
-
-box-shadow:
-0 0 12px rgba(22,131,255,.3);
 
 }
 
@@ -279,7 +256,7 @@ box-shadow:
 
 
 
-.placeholder {
+.icon {
 
 font-size:60px;
 
@@ -297,16 +274,28 @@ font-size:14px;
 
 
 
-
-
 /* PANELS */
+
+
+.workspace {
+
+display:flex;
+
+justify-content:center;
+
+gap:40px;
+
+flex-wrap:wrap;
+
+margin-top:50px;
+
+}
+
 
 
 .panel {
 
-width:450px;
-
-margin:40px auto;
+width:420px;
 
 background:#101621;
 
@@ -322,6 +311,37 @@ box-shadow:
 }
 
 
+
+.panel h2 {
+
+margin-top:0;
+
+}
+
+
+
+/* PREVIEW */
+
+
+.preview {
+
+height:300px;
+
+background:#080b12;
+
+border:1px solid #162235;
+
+border-radius:12px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:80px;
+
+}
 
 
 
@@ -343,102 +363,20 @@ margin:15px;
 }
 
 
-
-.setting-row input {
-
-width:70px;
-
-padding:10px;
-
-background:#080b12;
-
-border:1px solid #1683ff;
-
-border-radius:8px;
-
-color:white;
-
-text-align:center;
-
-}
-
-
-
+.setting-row input,
 select {
 
-background:#080b12;
+width:80px;
 
-color:white;
+padding:10px;
+
+background:#080b12;
 
 border:1px solid #1683ff;
 
 border-radius:8px;
 
-padding:10px;
-
-}
-
-
-
-
-
-/* PREVIEW */
-
-
-#preview {
-
-height:350px;
-
-margin-top:40px;
-
-background:#05070c;
-
-border:1px solid #1683ff;
-
-border-radius:15px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-color:#667085;
-
-}
-
-
-
-
-
-.generate-button {
-
-margin-top:20px;
-
-padding:15px 40px;
-
-border-radius:12px;
-
-border:1px solid #1683ff;
-
-background:#080b12;
-
 color:white;
-
-cursor:pointer;
-
-font-size:16px;
-
-}
-
-
-
-.generate-button:hover {
-
-background:#1683ff;
-
-box-shadow:
-0 0 25px #1683ff;
 
 }
 
@@ -446,6 +384,7 @@ box-shadow:
 </style>
 
 </head>
+
 
 
 <body>
@@ -463,19 +402,11 @@ VOXELFORGE
 
 
 
-<div class="nav-buttons">
-
+<div>
 
 <a href="index.html">
 <button>
 Home
-</button>
-</a>
-
-
-<a href="generator.html">
-<button>
-Generator
 </button>
 </a>
 
@@ -493,7 +424,6 @@ About
 </button>
 </a>
 
-
 </div>
 
 
@@ -506,20 +436,14 @@ About
 <div class="container">
 
 
-
 <h1>
-
 Minecraft Generator
-
 </h1>
 
 
-<p>
-
+<p class="subtitle">
 Create Minecraft structures from blocks, mobs and entities.
-
 </p>
-
 
 
 
@@ -528,33 +452,22 @@ Create Minecraft structures from blocks, mobs and entities.
 
 
 <button onclick="changeType('block')">
-
 🧱 Blocks
-
 </button>
-
 
 
 <button onclick="changeType('mob')">
-
 👾 Mobs
-
 </button>
-
 
 
 <button onclick="changeType('entity')">
-
 📦 Entities
-
 </button>
 
 
-
 <button onclick="changeType('all')">
-
 🌎 All
-
 </button>
 
 
@@ -563,16 +476,10 @@ Create Minecraft structures from blocks, mobs and entities.
 
 
 
-
 <input
-
 id="search"
-
 placeholder="Search Minecraft..."
-
-onkeyup="loadItems()"
-
->
+onkeyup="loadItems()">
 
 
 
@@ -580,183 +487,212 @@ onkeyup="loadItems()"
 
 <div class="items" id="items">
 
+
 </div>
-
-
-
+<div class="workspace">
 
 
 <div class="panel" id="selected-panel">
 
 
 <h2>
-
 No Selection
-
 </h2>
 
 
 <p>
-
 Choose a Minecraft object.
-
 </p>
 
 
 </div>
-<section class="workflow">
+
+
+
+
+
+<div class="panel">
 
 
 <h2>
-How VoxelForge Works
+Generation Settings
 </h2>
 
 
 
-<div class="steps">
-
-
-<div class="step">
-
-<div class="number">
-1
-</div>
-
-<h3>
-Choose
-</h3>
-
-<p>
-Select a Minecraft block, mob, entity or image.
+<p id="size-title">
+Resolution
 </p>
 
+
+
+<div class="setting-row">
+
+
+<label>
+X
+</label>
+
+
+<input 
+id="size-x"
+type="number"
+value="16">
+
+
+
+<label>
+Y
+</label>
+
+
+<input 
+id="size-y"
+type="number"
+value="16">
+
+
+
+<label>
+Z
+</label>
+
+
+<input 
+id="size-z"
+type="number"
+value="16">
+
+
+
 </div>
 
 
 
 
-<div class="step">
-
-<div class="number">
-2
-</div>
-
-<h3>
-Convert
-</h3>
-
-<p>
-VoxelForge analyses textures and converts them into voxel data.
+<p id="size-info">
+Minecraft block resolution
 </p>
 
+
+
+
+<p>
+Scale
+</p>
+
+
+
+<select id="scale">
+
+
+<option value="1">
+Original
+</option>
+
+
+<option value="2">
+2x
+</option>
+
+
+<option value="4">
+4x
+</option>
+
+
+<option value="8">
+8x
+</option>
+
+
+</select>
+
+
+
+
+
+<p>
+Generation Mode
+</p>
+
+
+
+<div class="mode-buttons">
+
+
+<button onclick="setMode('structure')">
+
+🧱 Structure
+
+</button>
+
+
+
+<button onclick="setMode('blueprint')">
+
+📘 Blueprint
+
+</button>
+
+
+
+<button onclick="setMode('image')">
+
+🖼 Image
+
+</button>
+
+
 </div>
 
 
 
 
-<div class="step">
 
-<div class="number">
-3
-</div>
+<button class="generate-button" onclick="generateStructure()">
 
-<h3>
 Generate
-</h3>
 
-<p>
-The voxel engine creates your Minecraft structure.
-</p>
-
-</div>
+</button>
 
 
 
+<button class="export-button" onclick="exportStructure()">
 
-<div class="step">
+Export NBT
 
-<div class="number">
-4
-</div>
-
-<h3>
-Export
-</h3>
-
-<p>
-Download your build as Minecraft-ready files.
-</p>
-
-</div>
+</button>
 
 
 
 </div>
 
 
-</section>
 
 
 
-
-
-<section class="feature-section">
+<div class="panel">
 
 
 <h2>
-Built For Minecraft Creators
+Preview
 </h2>
 
 
-<div class="container">
+<div class="preview" id="preview">
 
 
-<div class="card">
-
-
-<h2>
-📦 NBT Export
-</h2>
-
-
-<p>
-Export generated structures into Minecraft compatible formats.
-</p>
+⬜
 
 
 </div>
 
 
+<p id="generation-status">
 
+Waiting for generation...
 
-<div class="card">
-
-
-<h2>
-🎨 Texture Matching
-</h2>
-
-
-<p>
-Colours and textures are converted into accurate Minecraft blocks.
-</p>
-
-
-</div>
-
-
-
-
-<div class="card">
-
-
-<h2>
-🧊 Voxel Engine
-</h2>
-
-
-<p>
-Generate detailed 3D voxel models from Minecraft data.
 </p>
 
 
@@ -767,21 +703,23 @@ Generate detailed 3D voxel models from Minecraft data.
 </div>
 
 
-</section>
+
+</div>
 
 
 
+<script src="minecraft-data.js"></script>
 
 
-<footer>
+<script src="js/colour-matcher.js"></script>
 
-VoxelForge<br>
+<script src="js/texture-loader.js"></script>
 
-Minecraft Structure Generator<br><br>
+<script src="js/voxel-engine.js"></script>
 
-Version 1.0
+<script src="js/nbt-exporter.js"></script>
 
-</footer>
+<script src="js/generator.js"></script>
 
 
 

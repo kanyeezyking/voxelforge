@@ -263,17 +263,17 @@ Choose a Minecraft block, mob or entity.
 <div class="categories">
 
 
-<button>
+<button onclick="changeType('block')">
 🧱 Blocks
 </button>
 
 
-<button>
+<button onclick="changeType('mob')">
 👾 Mobs
 </button>
 
 
-<button>
+<button onclick="changeType('entity')">
 📦 Entities
 </button>
 
@@ -289,59 +289,102 @@ Choose a Minecraft block, mob or entity.
 
 
 
-<div class="items">
+<div class="items" id="items">
+
+</div>
 
 
+
+</div>
+<script src="minecraft-data.js"></script>
+
+
+<script>
+
+
+let currentType = "block";
+
+
+function loadItems(){
+
+
+let container = document.getElementById("items");
+
+
+container.innerHTML = "";
+
+
+let data;
+
+
+if(currentType === "block"){
+
+data = minecraftBlocks;
+
+}
+
+
+if(currentType === "mob"){
+
+data = minecraftMobs;
+
+}
+
+
+if(currentType === "entity"){
+
+data = minecraftEntities;
+
+}
+
+
+
+data.forEach(item => {
+
+
+container.innerHTML += `
 
 <div class="card">
 
 <div class="placeholder">
-🟩
+
+${item.icon}
+
 </div>
 
 <h3>
-Grass Block
+
+${item.name}
+
 </h3>
 
-</div>
-
-
-
-<div class="card">
-
-<div class="placeholder">
-🪵
-</div>
-
-<h3>
-Oak Log
-</h3>
 
 </div>
 
+`;
+
+
+});
+
+
+}
 
 
 
-<div class="card">
+function changeType(type){
 
-<div class="placeholder">
-💎
-</div>
+currentType = type;
 
-<h3>
-Diamond Block
-</h3>
+loadItems();
 
-</div>
+}
 
 
 
-</div>
+loadItems();
 
 
-
-</div>
-
+</script>
 
 </body>
 

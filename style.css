@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #1e1e24;
+  color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  background: #2b2b36;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: #55ff55;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: #aaaaaa;
+  font-size: 0.95rem;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background: #363646;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  display: block;
+  text-align: center;
+  background: #4a4a5e;
+  padding: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  border: 2px dashed #777799;
+  transition: 0.2s;
+}
+
+.custom-file-upload:hover {
+  background: #5a5a72;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  background: #2b2b36;
+  color: white;
+  border: 1px solid #555;
+}
+
+button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: #00aa00;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background: #00cc00;
+}
+
+button:disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.preview-section {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.card {
+  text-align: center;
+  background: #22222c;
+  padding: 1rem;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #ccc;
+}
+
+canvas {
+  width: 160px;
+  height: 160px;
+  image-rendering: pixelated;
+  border: 2px solid #555;
+  background: #000;
+}
+
+.export-section {
+  text-align: center;
+}
+
+.download-btn {
+  background: #0088ff;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.download-btn:hover:not(:disabled) {
+  background: #3399ff;
+}
+
+.instructions {
+  text-align: left;
+  background: #22222c;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.instructions code {
+  background: #111;
+  color: #ffaa00;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}

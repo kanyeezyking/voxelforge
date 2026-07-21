@@ -323,9 +323,19 @@ padding:25px;
 
 .settings input {
 
-width:80px;
+width:60px;
 
 margin:10px;
+
+background:#080b12;
+
+border:1px solid #1683ff;
+
+border-radius:8px;
+
+color:white;
+
+padding:8px;
 
 }
 
@@ -443,26 +453,64 @@ Choose a Minecraft object.
 </p>
 
 </div>
-<div class="settings">
+<div class="settings" id="settings">
 
 <h2>
 Generation Settings
 </h2>
 
 
-<p>
-Structure Size
+<p id="size-title">
+Block Resolution
 </p>
 
 
-<input value="10">
-x
-<input value="10">
-x
-<input value="10">
+<div>
+
+<label>
+X:
+</label>
+
+<input 
+id="size-x"
+type="number"
+value="16"
+min="16"
+step="16">
 
 
-<br>
+<label>
+Y:
+</label>
+
+<input 
+id="size-y"
+type="number"
+value="16"
+min="16"
+step="16">
+
+
+<label>
+Z:
+</label>
+
+<input 
+id="size-z"
+type="number"
+value="16"
+min="16"
+step="16">
+
+</div>
+
+
+<p id="size-info">
+
+Minimum resolution:
+16 × 16 × 16
+
+</p>
 
 
 <button class="generate-button">
@@ -690,6 +738,57 @@ Generate Structure
 `;
 
 }
+function limitResolution(){
+
+
+let inputs = [
+
+document.getElementById("size-x"),
+
+document.getElementById("size-y"),
+
+document.getElementById("size-z")
+
+];
+
+
+
+inputs.forEach(input => {
+
+
+input.addEventListener("change", function(){
+
+
+let value = Number(this.value);
+
+
+
+if(value < 16){
+
+this.value = 16;
+
+}
+
+
+
+if(value % 16 !== 0){
+
+this.value =
+Math.round(value / 16) * 16;
+
+}
+
+
+});
+
+
+});
+
+
+}
+
+
+limitResolution();
 loadItems();
 
 

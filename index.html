@@ -1,86 +1,365 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Voxel Forge</title>
+
+<title>VoxelForge</title>
 
 <style>
+
+* {
+    box-sizing: border-box;
+}
+
+
 body {
+
     margin:0;
-    background:#1b1b1b;
+
+    background:#080b12;
+
     color:white;
-    font-family:Arial;
+
+    font-family:Arial, Helvetica, sans-serif;
+
 }
 
-header {
-    padding:40px;
-    text-align:center;
+
+/* Navigation */
+
+nav {
+
+    height:70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 60px;
+
+    border-bottom:1px solid #162235;
+
 }
 
-button {
-    padding:15px 30px;
+
+.logo {
+
+    font-size:32px;
+
+    font-weight:900;
+
+    letter-spacing:4px;
+
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        #1683ff
+    );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+    text-shadow:
+    0 0 20px rgba(22,131,255,.5);
+
+}
+
+
+
+.nav-buttons button {
+
+    background:none;
+
     border:none;
-    border-radius:10px;
-    background:#4caf50;
-    color:white;
-    font-size:18px;
+
+    color:#aab3c2;
+
+    margin-left:25px;
+
+    font-size:15px;
+
     cursor:pointer;
+
 }
+
+
+.nav-buttons button:hover {
+
+    color:white;
+
+}
+
+
+/* Hero */
+
+
+.hero {
+
+    text-align:center;
+
+    padding:90px 20px 50px;
+
+}
+
+
+.hero h1 {
+
+    font-size:48px;
+
+    margin-bottom:15px;
+
+}
+
+
+.hero p {
+
+    color:#9aa4b5;
+
+    font-size:19px;
+
+}
+
+
+/* Cards */
+
+
+.container {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:35px;
+
+    flex-wrap:wrap;
+
+}
+
+
 
 .card {
-    background:#2b2b2b;
-    padding:30px;
-    margin:20px auto;
-    width:400px;
-    border-radius:15px;
+
+    width:380px;
+
+    padding:35px;
+
+    background:#101621;
+
+    border-radius:18px;
+
+    border:1px solid #1683ff;
+
+    box-shadow:
+    0 0 15px rgba(22,131,255,.35);
+
+    text-align:center;
+
 }
+
+
+
+.card h2 {
+
+    font-size:26px;
+
+}
+
+
+
+.card p {
+
+    color:#aab3c2;
+
+    line-height:1.6;
+
+}
+
+
+
+/* Main Buttons */
+
+
+.main-button {
+
+    margin-top:25px;
+
+    padding:15px 40px;
+
+    border-radius:14px;
+
+    border:1px solid #1683ff;
+
+    background:#080b12;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+
+.main-button:hover {
+
+    background:#1683ff;
+
+    box-shadow:
+    0 0 25px #1683ff;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+/* Footer */
+
+
+footer {
+
+    margin-top:90px;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#667085;
+
+}
+
 
 </style>
 
 </head>
 
+
 <body>
 
-<header>
 
-<h1>Voxel Forge</h1>
+<nav>
 
-<p>
+
+<div class="logo">
+VOXELFORGE
+</div>
+
+
+<div class="nav-buttons">
+
+<button>
+Home
+</button>
+
+<button>
+Generator
+</button>
+
+<button>
+Image
+</button>
+
+<button>
+About
+</button>
+
+
+</div>
+
+
+</nav>
+
+
+
+<section class="hero">
+
+
+<h1>
 Minecraft Structure Generator
-</p>
+</h1>
 
-</header>
-
-
-<div class="card">
-
-<h2>🧱 Minecraft Generator</h2>
 
 <p>
 Create giant Minecraft structures from blocks, mobs and entities.
 </p>
 
-<button>
-Start Generator
+
+</section>
+
+
+
+
+<div class="container">
+
+
+<div class="card">
+
+
+<h2>
+🧱 Minecraft Generator
+</h2>
+
+
+<p>
+Choose any Minecraft block, mob or entity and transform it into a massive build.
+</p>
+
+
+<button class="main-button">
+
+Open Generator
+
 </button>
 
+
 </div>
+
+
 
 
 
 <div class="card">
 
-<h2>🖼 Image Generator</h2>
+
+<h2>
+🖼 Image Generator
+</h2>
+
 
 <p>
-Turn images into Minecraft builds.
+Upload any image and convert it into Minecraft-style builds.
 </p>
 
-<button>
+
+<button class="main-button">
+
 Upload Image
+
 </button>
+
 
 </div>
 
 
+
+</div>
+
+
+
+<footer>
+
+VoxelForge v0.1
+
+</footer>
+
+
+
 </body>
+
 </html>

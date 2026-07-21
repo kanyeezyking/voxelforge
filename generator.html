@@ -697,7 +697,7 @@ let panel = document.getElementById(
 );
 
 
-
+updateResolution(item.type);
 panel.innerHTML = `
 
 
@@ -738,25 +738,39 @@ Generate Structure
 `;
 
 }
-function limitResolution(){
+function updateResolution(type){
 
 
-let inputs = [
+let x = document.getElementById("size-x");
+let y = document.getElementById("size-y");
+let z = document.getElementById("size-z");
 
-document.getElementById("size-x"),
 
-document.getElementById("size-y"),
-
-document.getElementById("size-z")
-
-];
+let title = document.getElementById("size-title");
+let info = document.getElementById("size-info");
 
 
 
-inputs.forEach(input => {
+if(type === "block"){
 
 
-input.addEventListener("change", function(){
+title.innerHTML = "Block Resolution";
+
+
+info.innerHTML =
+"Blocks must stay square: 16 × 16 × 16 scaling";
+
+
+
+x.value = 16;
+y.value = 16;
+z.value = 16;
+
+
+[x,y,z].forEach(input => {
+
+
+input.onchange = function(){
 
 
 let value = Number(this.value);
@@ -765,30 +779,41 @@ let value = Number(this.value);
 
 if(value < 16){
 
-this.value = 16;
+value = 16;
 
 }
 
 
+value = Math.round(value / 16) * 16;
 
-if(value % 16 !== 0){
 
-this.value =
-Math.round(value / 16) * 16;
+x.value = value;
+y.value = value;
+z.value = value;
 
-}
+
+};
 
 
 });
 
 
-});
+}
+
+
+else {
+
+
+title.innerHTML = "Entity Model Size";
+
+
+info.innerHTML =
+"Dimensions based on Minecraft model size";
 
 
 }
 
-
-limitResolution();
+}
 loadItems();
 
 

@@ -25,6 +25,7 @@ font-family:Arial, Helvetica, sans-serif;
 }
 
 
+
 /* NAVIGATION */
 
 nav {
@@ -42,6 +43,7 @@ padding:0 60px;
 border-bottom:1px solid #162235;
 
 }
+
 
 
 .logo {
@@ -65,6 +67,15 @@ color:transparent;
 }
 
 
+
+.nav-buttons a {
+
+text-decoration:none;
+
+}
+
+
+
 nav button {
 
 background:none;
@@ -81,6 +92,16 @@ cursor:pointer;
 
 
 
+nav button:hover {
+
+color:white;
+
+}
+
+
+
+
+
 /* MAIN */
 
 .container {
@@ -90,6 +111,7 @@ padding:50px;
 text-align:center;
 
 }
+
 
 
 h1 {
@@ -102,7 +124,10 @@ margin-bottom:10px;
 
 
 
+
+
 /* BUTTONS */
+
 
 button {
 
@@ -113,7 +138,8 @@ font-family:inherit;
 
 
 .categories button,
-.mode-buttons button {
+.mode-buttons button,
+.action-button {
 
 padding:12px 25px;
 
@@ -136,7 +162,8 @@ transition:.2s;
 
 
 .categories button:hover,
-.mode-buttons button.active {
+.mode-buttons button.active,
+.action-button:hover {
 
 background:#1683ff;
 
@@ -147,7 +174,10 @@ box-shadow:
 
 
 
+
+
 /* SEARCH */
+
 
 #search {
 
@@ -171,7 +201,9 @@ font-size:16px;
 
 
 
-/* OBJECT CARDS */
+
+
+/* OBJECTS */
 
 
 .items {
@@ -187,6 +219,8 @@ margin-top:40px;
 flex-wrap:wrap;
 
 }
+
+
 
 
 
@@ -263,12 +297,14 @@ font-size:14px;
 
 
 
+
+
 /* PANELS */
 
 
 .panel {
 
-width:420px;
+width:450px;
 
 margin:40px auto;
 
@@ -286,12 +322,6 @@ box-shadow:
 }
 
 
-
-.panel h2 {
-
-margin-top:0;
-
-}
 
 
 
@@ -313,6 +343,7 @@ margin:15px;
 }
 
 
+
 .setting-row input {
 
 width:70px;
@@ -332,6 +363,7 @@ text-align:center;
 }
 
 
+
 select {
 
 background:#080b12;
@@ -348,11 +380,42 @@ padding:10px;
 
 
 
+
+
+/* PREVIEW */
+
+
+#preview {
+
+height:350px;
+
+margin-top:40px;
+
+background:#05070c;
+
+border:1px solid #1683ff;
+
+border-radius:15px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+color:#667085;
+
+}
+
+
+
+
+
 .generate-button {
 
 margin-top:20px;
 
-padding:14px 35px;
+padding:15px 40px;
 
 border-radius:12px;
 
@@ -380,14 +443,6 @@ box-shadow:
 }
 
 
-
-.hidden {
-
-display:none;
-
-}
-
-
 </style>
 
 </head>
@@ -396,36 +451,76 @@ display:none;
 <body>
 
 
+
 <nav>
 
+
 <div class="logo">
+
 VOXELFORGE
-</div>
-
-
-<div>
-
-<button>Home</button>
-<button>Image</button>
-<button>About</button>
 
 </div>
+
+
+
+<div class="nav-buttons">
+
+
+<a href="index.html">
+<button>
+Home
+</button>
+</a>
+
+
+<a href="generator.html">
+<button>
+Generator
+</button>
+</a>
+
+
+<a href="image.html">
+<button>
+Image
+</button>
+</a>
+
+
+<a href="about.html">
+<button>
+About
+</button>
+</a>
+
+
+</div>
+
 
 </nav>
+
+
 
 
 
 <div class="container">
 
 
+
 <h1>
+
 Minecraft Generator
+
 </h1>
 
 
 <p>
+
 Create Minecraft structures from blocks, mobs and entities.
+
 </p>
+
+
 
 
 
@@ -433,22 +528,33 @@ Create Minecraft structures from blocks, mobs and entities.
 
 
 <button onclick="changeType('block')">
+
 🧱 Blocks
+
 </button>
+
 
 
 <button onclick="changeType('mob')">
+
 👾 Mobs
+
 </button>
+
 
 
 <button onclick="changeType('entity')">
+
 📦 Entities
+
 </button>
 
 
+
 <button onclick="changeType('all')">
+
 🌎 All
+
 </button>
 
 
@@ -456,10 +562,19 @@ Create Minecraft structures from blocks, mobs and entities.
 
 
 
+
+
 <input
+
 id="search"
+
 placeholder="Search Minecraft..."
-onkeyup="loadItems()">
+
+onkeyup="loadItems()"
+
+>
+
+
 
 
 
@@ -469,570 +584,205 @@ onkeyup="loadItems()">
 
 
 
+
+
 <div class="panel" id="selected-panel">
 
+
 <h2>
+
 No Selection
+
 </h2>
 
 
 <p>
+
 Choose a Minecraft object.
+
 </p>
 
 
 </div>
-
-
-
-<div class="panel">
+<section class="workflow">
 
 
 <h2>
-Generation Settings
+How VoxelForge Works
 </h2>
 
 
-<p id="size-title">
-Resolution
-</p>
+
+<div class="steps">
 
 
-<div class="setting-row">
+<div class="step">
 
-
-<label>X</label>
-
-<input id="size-x" type="number" value="16">
-
-
-<label>Y</label>
-
-<input id="size-y" type="number" value="16">
-
-
-<label>Z</label>
-
-<input id="size-z" type="number" value="16">
-
-
+<div class="number">
+1
 </div>
-
-
-<p id="size-info">
-Minecraft texture resolution
-</p>
-
-
-
-<p>
-Scale
-</p>
-
-
-<select id="scale">
-
-<option value="1">
-Original
-</option>
-
-
-<option value="2">
-2x
-</option>
-
-
-<option value="4">
-4x
-</option>
-
-
-<option value="8">
-8x
-</option>
-
-</select>
-
-
-
-<p>
-Generation Mode
-</p>
-
-
-
-<div class="mode-buttons">
-
-
-<button onclick="setMode('structure')">
-🧱 Structure
-</button>
-
-
-<button onclick="setMode('blueprint')">
-📘 Blueprint
-</button>
-
-
-</div>
-
-
-
-<button class="generate-button">
-Generate
-</button>
-
-
-</div>
-
-
-</div>
-<script src="minecraft-data.js"></script>
-
-<script>
-
-
-let currentType = "block";
-
-let currentMode = "structure";
-
-let selectedItem = null;
-
-
-
-function loadItems(){
-
-
-let container = document.getElementById("items");
-
-
-container.innerHTML = "";
-
-
-
-let search = document
-.getElementById("search")
-.value
-.toLowerCase();
-
-
-
-let data = [];
-
-
-
-if(currentType === "block"){
-
-data = minecraftBlocks;
-
-}
-
-
-if(currentType === "mob"){
-
-data = minecraftMobs;
-
-}
-
-
-if(currentType === "entity"){
-
-data = minecraftEntities;
-
-}
-
-
-if(currentType === "all"){
-
-data = [
-...minecraftBlocks,
-...minecraftMobs,
-...minecraftEntities
-];
-
-}
-
-
-
-data = data.filter(item => {
-
-
-return item.name
-.toLowerCase()
-.includes(search);
-
-
-});
-
-
-
-data.forEach(item => {
-
-
-container.innerHTML += `
-
-<div class="card"
-onclick="selectItem('${item.name}', this)">
-
-
-<div class="placeholder">
-
-${item.icon}
-
-</div>
-
 
 <h3>
-
-${item.name}
-
+Choose
 </h3>
 
+<p>
+Select a Minecraft block, mob, entity or image.
+</p>
 
-<div class="card-info">
+</div>
 
-${item.type}
+
+
+
+<div class="step">
+
+<div class="number">
+2
+</div>
+
+<h3>
+Convert
+</h3>
+
+<p>
+VoxelForge analyses textures and converts them into voxel data.
+</p>
 
 </div>
 
 
+
+
+<div class="step">
+
+<div class="number">
+3
 </div>
 
-`;
+<h3>
+Generate
+</h3>
 
-});
+<p>
+The voxel engine creates your Minecraft structure.
+</p>
 
-
-}
-
-
-
-
-
-function changeType(type){
-
-
-currentType = type;
-
-
-loadItems();
-
-
-}
+</div>
 
 
 
 
-function selectItem(name, element){
+<div class="step">
 
+<div class="number">
+4
+</div>
 
-document.querySelectorAll(".card")
-.forEach(card=>{
+<h3>
+Export
+</h3>
 
-card.classList.remove("selected");
+<p>
+Download your build as Minecraft-ready files.
+</p>
 
-});
-
-
-element.classList.add("selected");
-
-
-
-let allItems = [
-
-...minecraftBlocks,
-
-...minecraftMobs,
-
-...minecraftEntities
-
-];
+</div>
 
 
 
-selectedItem = allItems.find(
-item => item.name === name
-);
+</div>
+
+
+</section>
 
 
 
-updateSettings();
 
 
-
-let panel = document.getElementById(
-"selected-panel"
-);
-
-
-
-panel.innerHTML = `
+<section class="feature-section">
 
 
 <h2>
-
-${selectedItem.icon}
-
-${selectedItem.name}
-
+Built For Minecraft Creators
 </h2>
 
 
-
-<p>
-
-Type:
-
-${selectedItem.type}
-
-</p>
+<div class="container">
 
 
+<div class="card">
 
-<p>
 
-Category:
-
-${selectedItem.category}
-
-</p>
-
+<h2>
+📦 NBT Export
+</h2>
 
 
 <p>
-
-Dimensions:
-
-${selectedItem.size.x}
-×
-
-${selectedItem.size.y}
-×
-
-${selectedItem.size.z}
-
+Export generated structures into Minecraft compatible formats.
 </p>
 
 
+</div>
 
-`;
 
 
 
-}
+<div class="card">
 
 
+<h2>
+🎨 Texture Matching
+</h2>
 
 
-function updateSettings(){
+<p>
+Colours and textures are converted into accurate Minecraft blocks.
+</p>
 
 
-if(!selectedItem){
+</div>
 
-return;
 
-}
 
 
+<div class="card">
 
-let x = document.getElementById("size-x");
 
-let y = document.getElementById("size-y");
+<h2>
+🧊 Voxel Engine
+</h2>
 
-let z = document.getElementById("size-z");
 
+<p>
+Generate detailed 3D voxel models from Minecraft data.
+</p>
 
 
-let title = document.getElementById("size-title");
+</div>
 
-let info = document.getElementById("size-info");
 
 
+</div>
 
 
+</section>
 
-if(selectedItem.type === "block"){
 
 
-title.innerHTML =
-"Block Resolution";
 
 
-info.innerHTML =
-"Blocks scale evenly in all directions";
+<footer>
 
+VoxelForge<br>
 
+Minecraft Structure Generator<br><br>
 
-x.value = 16;
-y.value = 16;
-z.value = 16;
+Version 1.0
 
+</footer>
 
-
-[x,y,z].forEach(input=>{
-
-
-input.onchange = function(){
-
-
-let value = Number(this.value);
-
-
-
-if(value < 16){
-
-value = 16;
-
-}
-
-
-
-value = Math.round(value / 16) * 16;
-
-
-
-x.value = value;
-
-y.value = value;
-
-z.value = value;
-
-
-
-};
-
-
-
-});
-
-
-}
-
-
-
-else {
-
-
-
-title.innerHTML =
-"Model Resolution";
-
-
-
-info.innerHTML =
-"Entity dimensions scale proportionally";
-
-
-
-x.value = selectedItem.size.x;
-
-y.value = selectedItem.size.y;
-
-z.value = selectedItem.size.z;
-
-
-
-}
-
-
-
-}
-
-
-
-
-
-function setMode(mode){
-
-
-currentMode = mode;
-
-
-document.querySelectorAll(".mode-buttons button")
-.forEach(button=>{
-
-button.classList.remove("active");
-
-});
-
-
-if(mode === "structure"){
-
-document.querySelector(
-".mode-buttons button:first-child"
-).classList.add("active");
-
-}
-
-
-if(mode === "blueprint"){
-
-document.querySelector(
-".mode-buttons button:last-child"
-).classList.add("active");
-
-}
-
-
-
-console.log(
-"Generation mode:",
-currentMode
-);
-
-
-}
-
-
-
-
-
-document
-.getElementById("scale")
-.addEventListener(
-"change",
-function(){
-
-
-if(!selectedItem){
-
-return;
-
-}
-
-
-
-let multiplier = Number(this.value);
-
-
-
-document.getElementById("size-x").value =
-selectedItem.size.x * multiplier;
-
-
-
-document.getElementById("size-y").value =
-selectedItem.size.y * multiplier;
-
-
-
-document.getElementById("size-z").value =
-selectedItem.size.z * multiplier;
-
-
-
-}
-);
-
-
-
-
-
-loadItems();
-
-
-
-</script>
 
 
 </body>

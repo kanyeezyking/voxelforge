@@ -5,64 +5,13 @@
 
 <title>VoxelForge Generator</title>
 
-
 <style>
-.selected-panel {
 
-margin:50px auto;
-
-width:350px;
-
-background:#101621;
-
-border:1px solid #1683ff;
-
-border-radius:15px;
-
-padding:25px;
-
-box-shadow:
-0 0 15px rgba(22,131,255,.3);
-
+* {
+box-sizing:border-box;
 }
 
 
-.selected-panel h2 {
-
-margin-top:0;
-
-}
-
-
-.generate-button {
-
-margin-top:20px;
-
-padding:14px 30px;
-
-border-radius:12px;
-
-border:1px solid #1683ff;
-
-background:#080b12;
-
-color:white;
-
-cursor:pointer;
-
-font-size:16px;
-
-}
-
-
-.generate-button:hover {
-
-background:#1683ff;
-
-box-shadow:
-0 0 20px #1683ff;
-
-}
 body {
 
 margin:0;
@@ -76,7 +25,7 @@ font-family:Arial, Helvetica, sans-serif;
 }
 
 
-/* Navigation */
+/* NAVIGATION */
 
 nav {
 
@@ -122,7 +71,7 @@ background:none;
 
 border:none;
 
-color:#aaa;
+color:#9aa4b5;
 
 margin-left:20px;
 
@@ -131,7 +80,8 @@ cursor:pointer;
 }
 
 
-/* Main */
+
+/* MAIN */
 
 .container {
 
@@ -142,24 +92,32 @@ text-align:center;
 }
 
 
-
 h1 {
 
 font-size:45px;
+
+margin-bottom:10px;
 
 }
 
 
 
-/* Category buttons */
+/* BUTTONS */
+
+button {
+
+font-family:inherit;
+
+}
 
 
-.categories button {
 
+.categories button,
+.mode-buttons button {
 
 padding:12px 25px;
 
-margin:10px;
+margin:8px;
 
 border-radius:10px;
 
@@ -171,30 +129,32 @@ color:white;
 
 cursor:pointer;
 
+transition:.2s;
+
 }
 
 
-.categories button:hover {
+
+.categories button:hover,
+.mode-buttons button:hover {
 
 background:#1683ff;
 
-box-shadow:
-0 0 20px #1683ff;
+box-shadow:0 0 20px #1683ff;
 
 }
 
 
 
-/* Search */
+/* SEARCH */
 
-
-input {
+#search {
 
 width:400px;
 
 padding:15px;
 
-margin-top:30px;
+margin-top:25px;
 
 background:#101621;
 
@@ -209,7 +169,8 @@ font-size:16px;
 }
 
 
-/* Cards */
+
+/* OBJECT CARDS */
 
 
 .items {
@@ -220,11 +181,12 @@ justify-content:center;
 
 gap:25px;
 
-margin-top:50px;
+margin-top:40px;
 
 flex-wrap:wrap;
 
 }
+
 
 
 .card {
@@ -247,25 +209,15 @@ justify-content:center;
 
 align-items:center;
 
+cursor:pointer;
+
+transition:.25s;
+
 box-shadow:
 0 0 12px rgba(22,131,255,.3);
 
 }
 
-
-.placeholder {
-
-font-size:60px;
-
-}
-
-.card {
-
-cursor:pointer;
-
-transition:.25s;
-
-}
 
 
 .card:hover {
@@ -273,9 +225,10 @@ transition:.25s;
 transform:translateY(-5px);
 
 box-shadow:
-0 0 25px rgba(22,131,255,.7);
+0 0 25px #1683ff;
 
 }
+
 
 
 .card.selected {
@@ -291,23 +244,32 @@ box-shadow:
 
 
 
-.card-info {
+.placeholder {
 
-font-size:13px;
-
-color:#9aa4b5;
-
-margin-top:5px;
+font-size:60px;
 
 }
 
 
 
-.settings {
+.card-info {
+
+color:#9aa4b5;
+
+font-size:14px;
+
+}
+
+
+
+/* PANELS */
+
+
+.panel {
+
+width:420px;
 
 margin:40px auto;
-
-width:400px;
 
 background:#101621;
 
@@ -317,15 +279,44 @@ border-radius:15px;
 
 padding:25px;
 
+box-shadow:
+0 0 15px rgba(22,131,255,.3);
+
 }
 
 
 
-.settings input {
+.panel h2 {
 
-width:60px;
+margin-top:0;
 
-margin:10px;
+}
+
+
+
+/* SETTINGS */
+
+
+.setting-row {
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:10px;
+
+margin:15px;
+
+}
+
+
+.setting-row input {
+
+width:70px;
+
+padding:10px;
 
 background:#080b12;
 
@@ -335,29 +326,76 @@ border-radius:8px;
 
 color:white;
 
-padding:8px;
+text-align:center;
+
+}
+
+
+select {
+
+background:#080b12;
+
+color:white;
+
+border:1px solid #1683ff;
+
+border-radius:8px;
+
+padding:10px;
 
 }
 
 
 
-.settings button {
+.generate-button {
 
 margin-top:20px;
 
+padding:14px 35px;
+
+border-radius:12px;
+
+border:1px solid #1683ff;
+
+background:#080b12;
+
+color:white;
+
+cursor:pointer;
+
+font-size:16px;
+
 }
+
+
+
+.generate-button:hover {
+
+background:#1683ff;
+
+box-shadow:
+0 0 25px #1683ff;
+
+}
+
+
+
+.hidden {
+
+display:none;
+
+}
+
+
 </style>
 
 </head>
 
 
-
 <body>
 
 
-
 <nav>
-
 
 <div class="logo">
 VOXELFORGE
@@ -366,24 +404,13 @@ VOXELFORGE
 
 <div>
 
-<button>
-Home
-</button>
-
-<button>
-Image
-</button>
-
-<button>
-About
-</button>
-
+<button>Home</button>
+<button>Image</button>
+<button>About</button>
 
 </div>
 
-
 </nav>
-
 
 
 
@@ -396,7 +423,7 @@ Minecraft Generator
 
 
 <p>
-Choose a Minecraft block, mob or entity.
+Create Minecraft structures from blocks, mobs and entities.
 </p>
 
 
@@ -418,22 +445,20 @@ Choose a Minecraft block, mob or entity.
 📦 Entities
 </button>
 
+
 <button onclick="changeType('all')">
-
 🌎 All
-
 </button>
-  
+
+
 </div>
 
 
 
-
-<input 
+<input
 id="search"
 placeholder="Search Minecraft..."
 onkeyup="loadItems()">
-
 
 
 
@@ -442,18 +467,25 @@ onkeyup="loadItems()">
 </div>
 
 
-<div class="selected-panel" id="selected-panel">
+
+<div class="panel" id="selected-panel">
 
 <h2>
 No Selection
 </h2>
 
+
 <p>
 Choose a Minecraft object.
 </p>
 
+
 </div>
-<div class="settings" id="settings">
+
+
+
+<div class="panel">
+
 
 <h2>
 Generation Settings
@@ -461,62 +493,92 @@ Generation Settings
 
 
 <p id="size-title">
-Block Resolution
+Resolution
 </p>
 
 
-<div>
-
-<label>
-X:
-</label>
-
-<input 
-id="size-x"
-type="number"
-value="16"
-min="16"
-step="16">
+<div class="setting-row">
 
 
-<label>
-Y:
-</label>
+<label>X</label>
 
-<input 
-id="size-y"
-type="number"
-value="16"
-min="16"
-step="16">
+<input id="size-x" type="number" value="16">
 
 
-<label>
-Z:
-</label>
+<label>Y</label>
 
-<input 
-id="size-z"
-type="number"
-value="16"
-min="16"
-step="16">
+<input id="size-y" type="number" value="16">
+
+
+<label>Z</label>
+
+<input id="size-z" type="number" value="16">
+
 
 </div>
 
 
 <p id="size-info">
-
-Minimum resolution:
-16 × 16 × 16
-
+Minecraft texture resolution
 </p>
 
 
+
+<p>
+Scale
+</p>
+
+
+<select id="scale">
+
+<option value="1">
+Original
+</option>
+
+
+<option value="2">
+2x
+</option>
+
+
+<option value="4">
+4x
+</option>
+
+
+<option value="8">
+8x
+</option>
+
+</select>
+
+
+
+<p>
+Generation Mode
+</p>
+
+
+
+<div class="mode-buttons">
+
+
+<button onclick="setMode('structure')">
+🧱 Structure
+</button>
+
+
+<button onclick="setMode('blueprint')">
+📘 Blueprint
+</button>
+
+
+</div>
+
+
+
 <button class="generate-button">
-
 Generate
-
 </button>
 
 
@@ -526,13 +588,14 @@ Generate
 </div>
 <script src="minecraft-data.js"></script>
 
-
 <script>
 
 
 let currentType = "block";
 
-let searchText = "";
+let currentMode = "structure";
+
+let selectedItem = null;
 
 
 
@@ -546,14 +609,14 @@ container.innerHTML = "";
 
 
 
-searchText = document
+let search = document
 .getElementById("search")
 .value
 .toLowerCase();
 
 
 
-let data;
+let data = [];
 
 
 
@@ -564,7 +627,6 @@ data = minecraftBlocks;
 }
 
 
-
 if(currentType === "mob"){
 
 data = minecraftMobs;
@@ -572,12 +634,12 @@ data = minecraftMobs;
 }
 
 
-
 if(currentType === "entity"){
 
 data = minecraftEntities;
 
 }
+
 
 if(currentType === "all"){
 
@@ -596,11 +658,10 @@ data = data.filter(item => {
 
 return item.name
 .toLowerCase()
-.includes(searchText);
+.includes(search);
 
 
 });
-
 
 
 
@@ -660,11 +721,12 @@ loadItems();
 
 
 
+
 function selectItem(name, element){
 
 
 document.querySelectorAll(".card")
-.forEach(card => {
+.forEach(card=>{
 
 card.classList.remove("selected");
 
@@ -686,9 +748,14 @@ let allItems = [
 ];
 
 
-let item = allItems.find(
-x => x.name === name
+
+selectedItem = allItems.find(
+item => item.name === name
 );
+
+
+
+updateSettings();
 
 
 
@@ -697,68 +764,101 @@ let panel = document.getElementById(
 );
 
 
-updateResolution(item.type);
+
 panel.innerHTML = `
 
 
 <h2>
 
-${item.icon}
+${selectedItem.icon}
 
-${item.name}
+${selectedItem.name}
 
 </h2>
+
 
 
 <p>
 
 Type:
 
-${item.type}
+${selectedItem.type}
 
 </p>
+
 
 
 <p>
 
 Category:
 
-${item.category || "Unknown"}
+${selectedItem.category}
 
 </p>
 
 
-<button class="generate-button">
 
-Generate Structure
+<p>
 
-</button>
+Dimensions:
+
+${selectedItem.size.x}
+×
+
+${selectedItem.size.y}
+×
+
+${selectedItem.size.z}
+
+</p>
+
 
 
 `;
 
+
+
 }
-function updateResolution(type){
+
+
+
+
+function updateSettings(){
+
+
+if(!selectedItem){
+
+return;
+
+}
+
 
 
 let x = document.getElementById("size-x");
+
 let y = document.getElementById("size-y");
+
 let z = document.getElementById("size-z");
 
 
+
 let title = document.getElementById("size-title");
+
 let info = document.getElementById("size-info");
 
 
 
-if(type === "block"){
 
 
-title.innerHTML = "Block Resolution";
+if(selectedItem.type === "block"){
+
+
+title.innerHTML =
+"Block Resolution";
 
 
 info.innerHTML =
-"Blocks must stay square: 16 × 16 × 16 scaling";
+"Blocks scale evenly in all directions";
 
 
 
@@ -767,7 +867,8 @@ y.value = 16;
 z.value = 16;
 
 
-[x,y,z].forEach(input => {
+
+[x,y,z].forEach(input=>{
 
 
 input.onchange = function(){
@@ -784,15 +885,21 @@ value = 16;
 }
 
 
+
 value = Math.round(value / 16) * 16;
 
 
+
 x.value = value;
+
 y.value = value;
+
 z.value = value;
 
 
+
 };
+
 
 
 });
@@ -801,25 +908,105 @@ z.value = value;
 }
 
 
+
 else {
 
 
-title.innerHTML = "Entity Model Size";
+
+title.innerHTML =
+"Model Resolution";
+
 
 
 info.innerHTML =
-"Dimensions based on Minecraft model size";
+"Entity dimensions scale proportionally";
+
+
+
+x.value = selectedItem.size.x;
+
+y.value = selectedItem.size.y;
+
+z.value = selectedItem.size.z;
+
 
 
 }
 
+
+
 }
+
+
+
+
+
+function setMode(mode){
+
+
+currentMode = mode;
+
+
+
+console.log(
+"Generation mode:",
+currentMode
+);
+
+
+
+}
+
+
+
+
+
+document
+.getElementById("scale")
+.addEventListener(
+"change",
+function(){
+
+
+if(!selectedItem){
+
+return;
+
+}
+
+
+
+let multiplier = Number(this.value);
+
+
+
+document.getElementById("size-x").value =
+selectedItem.size.x * multiplier;
+
+
+
+document.getElementById("size-y").value =
+selectedItem.size.y * multiplier;
+
+
+
+document.getElementById("size-z").value =
+selectedItem.size.z * multiplier;
+
+
+
+}
+);
+
+
+
+
+
 loadItems();
 
 
 
 </script>
-
 
 
 </body>

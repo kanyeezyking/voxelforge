@@ -7,7 +7,62 @@
 
 
 <style>
+.selected-panel {
 
+margin:50px auto;
+
+width:350px;
+
+background:#101621;
+
+border:1px solid #1683ff;
+
+border-radius:15px;
+
+padding:25px;
+
+box-shadow:
+0 0 15px rgba(22,131,255,.3);
+
+}
+
+
+.selected-panel h2 {
+
+margin-top:0;
+
+}
+
+
+.generate-button {
+
+margin-top:20px;
+
+padding:14px 30px;
+
+border-radius:12px;
+
+border:1px solid #1683ff;
+
+background:#080b12;
+
+color:white;
+
+cursor:pointer;
+
+font-size:16px;
+
+}
+
+
+.generate-button:hover {
+
+background:#1683ff;
+
+box-shadow:
+0 0 20px #1683ff;
+
+}
 body {
 
 margin:0;
@@ -301,6 +356,19 @@ onkeyup="loadItems()">
 </div>
 
 
+<div class="selected-panel" id="selected-panel">
+
+<h2>
+No Selection
+</h2>
+
+<p>
+Choose a Minecraft object.
+</p>
+
+</div>
+
+
 
 </div>
 <script src="minecraft-data.js"></script>
@@ -388,6 +456,28 @@ data.forEach(item => {
 
 container.innerHTML += `
 
+<div class="card"
+onclick="selectItem('${item.name}')">
+
+
+<div class="placeholder">
+
+${item.icon}
+
+</div>
+
+
+<h3>
+
+${item.name}
+
+</h3>
+
+
+</div>
+
+`;
+
 
 <div class="card">
 
@@ -434,7 +524,64 @@ loadItems();
 
 
 
+function selectItem(name){
 
+
+let allItems = [
+
+...minecraftBlocks,
+
+...minecraftMobs,
+
+...minecraftEntities
+
+];
+
+
+let item = allItems.find(
+x => x.name === name
+);
+
+
+
+let panel = document.getElementById(
+"selected-panel"
+);
+
+
+
+panel.innerHTML = `
+
+
+<h2>
+
+${item.icon}
+
+${item.name}
+
+</h2>
+
+
+<p>
+
+Type:
+
+${item.type || "Minecraft Object"}
+
+</p>
+
+
+<button class="generate-button">
+
+Generate Structure
+
+</button>
+
+
+`;
+
+
+}
 loadItems();
 
 

@@ -136,11 +136,12 @@ transition:.2s;
 
 
 .categories button:hover,
-.mode-buttons button:hover {
+.mode-buttons button.active {
 
 background:#1683ff;
 
-box-shadow:0 0 20px #1683ff;
+box-shadow:
+0 0 25px #1683ff;
 
 }
 
@@ -947,12 +948,37 @@ function setMode(mode){
 currentMode = mode;
 
 
+document.querySelectorAll(".mode-buttons button")
+.forEach(button=>{
+
+button.classList.remove("active");
+
+});
+
+
+if(mode === "structure"){
+
+document.querySelector(
+".mode-buttons button:first-child"
+).classList.add("active");
+
+}
+
+
+if(mode === "blueprint"){
+
+document.querySelector(
+".mode-buttons button:last-child"
+).classList.add("active");
+
+}
+
+
 
 console.log(
 "Generation mode:",
 currentMode
 );
-
 
 
 }

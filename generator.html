@@ -259,7 +259,83 @@ font-size:60px;
 
 }
 
+.card {
 
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+
+.card:hover {
+
+transform:translateY(-5px);
+
+box-shadow:
+0 0 25px rgba(22,131,255,.7);
+
+}
+
+
+.card.selected {
+
+background:#162235;
+
+border:2px solid #1683ff;
+
+box-shadow:
+0 0 30px #1683ff;
+
+}
+
+
+
+.card-info {
+
+font-size:13px;
+
+color:#9aa4b5;
+
+margin-top:5px;
+
+}
+
+
+
+.settings {
+
+margin:40px auto;
+
+width:400px;
+
+background:#101621;
+
+border:1px solid #1683ff;
+
+border-radius:15px;
+
+padding:25px;
+
+}
+
+
+
+.settings input {
+
+width:80px;
+
+margin:10px;
+
+}
+
+
+
+.settings button {
+
+margin-top:20px;
+
+}
 </style>
 
 </head>
@@ -367,7 +443,36 @@ Choose a Minecraft object.
 </p>
 
 </div>
+<div class="settings">
 
+<h2>
+Generation Settings
+</h2>
+
+
+<p>
+Structure Size
+</p>
+
+
+<input value="10">
+x
+<input value="10">
+x
+<input value="10">
+
+
+<br>
+
+
+<button class="generate-button">
+
+Generate
+
+</button>
+
+
+</div>
 
 
 </div>
@@ -457,7 +562,7 @@ data.forEach(item => {
 container.innerHTML += `
 
 <div class="card"
-onclick="selectItem('${item.name}')">
+onclick="selectItem('${item.name}', this)">
 
 
 <div class="placeholder">
@@ -472,6 +577,13 @@ ${item.icon}
 ${item.name}
 
 </h3>
+
+
+<div class="card-info">
+
+${item.type}
+
+</div>
 
 
 </div>
@@ -500,7 +612,19 @@ loadItems();
 
 
 
-function selectItem(name){
+function selectItem(name, element){
+
+
+document.querySelectorAll(".card")
+.forEach(card => {
+
+card.classList.remove("selected");
+
+});
+
+
+element.classList.add("selected");
+
 
 
 let allItems = [
@@ -542,7 +666,16 @@ ${item.name}
 
 Type:
 
-${item.type || "Minecraft Object"}
+${item.type}
+
+</p>
+
+
+<p>
+
+Category:
+
+${item.category || "Unknown"}
 
 </p>
 
@@ -555,7 +688,6 @@ Generate Structure
 
 
 `;
-
 
 }
 loadItems();

@@ -8,19 +8,19 @@
 <style>
 
 * {
-    box-sizing: border-box;
+box-sizing:border-box;
 }
 
 
 body {
 
-    margin:0;
+margin:0;
 
-    background:#080b12;
+background:#080b12;
 
-    color:white;
+color:white;
 
-    font-family:Arial, Helvetica, sans-serif;
+font-family:Arial, Helvetica, sans-serif;
 
 }
 
@@ -29,41 +29,41 @@ body {
 
 nav {
 
-    height:70px;
+height:70px;
 
-    display:flex;
+display:flex;
 
-    justify-content:space-between;
+justify-content:space-between;
 
-    align-items:center;
+align-items:center;
 
-    padding:0 60px;
+padding:0 60px;
 
-    border-bottom:1px solid #162235;
+border-bottom:1px solid #162235;
 
 }
 
 
 .logo {
 
-    font-size:32px;
+font-size:32px;
 
-    font-weight:900;
+font-weight:900;
 
-    letter-spacing:4px;
+letter-spacing:4px;
 
-    background:linear-gradient(
-        90deg,
-        #ffffff,
-        #1683ff
-    );
+background:linear-gradient(
+90deg,
+white,
+#1683ff
+);
 
-    -webkit-background-clip:text;
+-webkit-background-clip:text;
 
-    color:transparent;
+color:transparent;
 
-    text-shadow:
-    0 0 20px rgba(22,131,255,.5);
+text-shadow:
+0 0 20px rgba(22,131,255,.5);
 
 }
 
@@ -71,26 +71,28 @@ nav {
 
 .nav-buttons button {
 
-    background:none;
+background:none;
 
-    border:none;
+border:none;
 
-    color:#aab3c2;
+color:#aab3c2;
 
-    margin-left:25px;
+margin-left:25px;
 
-    font-size:15px;
+font-size:15px;
 
-    cursor:pointer;
+cursor:pointer;
 
 }
+
 
 
 .nav-buttons button:hover {
 
-    color:white;
+color:white;
 
 }
+
 
 
 /* Hero */
@@ -98,109 +100,81 @@ nav {
 
 .hero {
 
-    text-align:center;
+text-align:center;
 
-    padding:90px 20px 50px;
+padding:100px 20px 60px;
 
 }
 
 
 .hero h1 {
 
-    font-size:48px;
+font-size:56px;
 
-    margin-bottom:15px;
+margin:0;
+
+background:linear-gradient(
+90deg,
+white,
+#1683ff
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
 
 }
+
+
+
+.hero h2 {
+
+font-size:30px;
+
+margin-top:10px;
+
+}
+
 
 
 .hero p {
 
-    color:#9aa4b5;
+color:#9aa4b5;
 
-    font-size:19px;
+font-size:19px;
 
-}
+max-width:650px;
 
+margin:20px auto;
 
-/* Cards */
-
-
-.container {
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:35px;
-
-    flex-wrap:wrap;
+line-height:1.6;
 
 }
 
 
 
-.card {
-
-    width:380px;
-
-    padding:35px;
-
-    background:#101621;
-
-    border-radius:18px;
-
-    border:1px solid #1683ff;
-
-    box-shadow:
-    0 0 15px rgba(22,131,255,.35);
-
-    text-align:center;
-
-}
-
-
-
-.card h2 {
-
-    font-size:26px;
-
-}
-
-
-
-.card p {
-
-    color:#aab3c2;
-
-    line-height:1.6;
-
-}
-
-
-
-/* Main Buttons */
+/* Buttons */
 
 
 .main-button {
 
-    margin-top:25px;
+margin:15px;
 
-    padding:15px 40px;
+padding:15px 40px;
 
-    border-radius:14px;
+border-radius:14px;
 
-    border:1px solid #1683ff;
+border:1px solid #1683ff;
 
-    background:#080b12;
+background:#080b12;
 
-    color:white;
+color:white;
 
-    font-size:17px;
+font-size:17px;
 
-    cursor:pointer;
+cursor:pointer;
 
-    transition:.25s;
+transition:.25s;
 
 }
 
@@ -208,12 +182,159 @@ nav {
 
 .main-button:hover {
 
-    background:#1683ff;
+background:#1683ff;
 
-    box-shadow:
-    0 0 25px #1683ff;
+box-shadow:
+0 0 25px #1683ff;
 
-    transform:translateY(-3px);
+transform:translateY(-3px);
+
+}
+
+
+
+/* Cards */
+
+
+.container {
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+padding:20px;
+
+}
+
+
+
+.card {
+
+width:300px;
+
+padding:35px;
+
+background:#101621;
+
+border-radius:18px;
+
+border:1px solid #1683ff;
+
+box-shadow:
+0 0 15px rgba(22,131,255,.35);
+
+text-align:center;
+
+transition:.25s;
+
+}
+
+
+
+.card:hover {
+
+transform:translateY(-5px);
+
+box-shadow:
+0 0 30px rgba(22,131,255,.7);
+
+}
+
+
+
+.card h2 {
+
+font-size:25px;
+
+}
+
+
+
+.card p {
+
+color:#aab3c2;
+
+line-height:1.6;
+
+}
+
+
+
+/* Workflow */
+
+
+.workflow {
+
+text-align:center;
+
+padding:80px 20px;
+
+}
+
+
+
+.workflow h2 {
+
+font-size:35px;
+
+}
+
+
+
+.steps {
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+margin-top:40px;
+
+}
+
+
+
+.step {
+
+width:200px;
+
+background:#101621;
+
+border:1px solid #1683ff;
+
+border-radius:15px;
+
+padding:25px;
+
+box-shadow:
+0 0 12px rgba(22,131,255,.3);
+
+}
+
+
+
+.number {
+
+font-size:35px;
+
+font-weight:bold;
+
+color:#1683ff;
+
+}
+
+
+
+.step p {
+
+color:#aab3c2;
 
 }
 
@@ -224,15 +345,18 @@ nav {
 
 footer {
 
-    margin-top:90px;
+margin-top:70px;
 
-    padding:30px;
+padding:30px;
 
-    text-align:center;
+text-align:center;
 
-    color:#667085;
+color:#667085;
+
+border-top:1px solid #162235;
 
 }
+
 
 
 </style>
@@ -257,13 +381,24 @@ VOXELFORGE
 Home
 </button>
 
+
+<a href="generator.html">
+
 <button>
 Generator
 </button>
 
+</a>
+
+
+<a href="image.html">
+
 <button>
 Image
 </button>
+
+</a>
+
 
 <button>
 About
@@ -277,38 +412,25 @@ About
 
 
 
+
+
 <section class="hero">
 
 
 <h1>
-Minecraft Structure Generator
+VOXELFORGE
 </h1>
 
 
-<p>
-Create giant Minecraft structures from blocks, mobs and entities.
-</p>
-
-
-</section>
-
-
-
-
-<div class="container">
-
-
-<div class="card">
-
-
 <h2>
-🧱 Minecraft Generator
+Minecraft structures, reimagined.
 </h2>
 
 
 <p>
-Choose any Minecraft block, mob or entity and transform it into a massive build.
+Convert Minecraft blocks, mobs, entities and images into detailed 3D structures ready to be built in Minecraft.
 </p>
+
 
 
 <a href="generator.html">
@@ -322,43 +444,197 @@ Open Generator
 </a>
 
 
-</div>
+
+<a href="image.html">
+
+<button class="main-button">
+
+Try Image Mode
+
+</button>
+
+</a>
 
 
+
+</section>
+
+
+
+
+
+<div class="container">
 
 
 
 <div class="card">
 
+<h2>
+🧱 Structure Generator
+</h2>
+
+<p>
+Choose Minecraft blocks, mobs or entities and transform them into accurate voxel structures.
+</p>
+
+</div>
+
+
+
+<div class="card">
 
 <h2>
-🖼 Image Generator
+🖼 Image Converter
+</h2>
+
+<p>
+Upload album covers, logos or images and convert them into Minecraft builds.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>
+📘 Blueprint Mode
+</h2>
+
+<p>
+Generate step-by-step building instructions showing exactly where each block goes.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>
+⚙️ Minecraft 26.2 Ready
+</h2>
+
+<p>
+Designed around modern Minecraft versions with future version support.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<section class="workflow">
+
+
+<h2>
+How VoxelForge Works
 </h2>
 
 
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="number">
+1
+</div>
+
+<h3>
+Choose
+</h3>
+
 <p>
-Upload any image and convert it into Minecraft-style builds.
+Select a Minecraft object or upload an image.
 </p>
 
+</div>
 
-<button class="main-button">
 
-Upload Image
 
-</button>
 
+<div class="step">
+
+<div class="number">
+2
+</div>
+
+<h3>
+Convert
+</h3>
+
+<p>
+Pixels are matched to Minecraft colours and blocks.
+</p>
+
+</div>
+
+
+
+
+
+<div class="step">
+
+<div class="number">
+3
+</div>
+
+<h3>
+Generate
+</h3>
+
+<p>
+VoxelForge creates your 3D structure.
+</p>
+
+</div>
+
+
+
+
+
+<div class="step">
+
+<div class="number">
+4
+</div>
+
+<h3>
+Build
+</h3>
+
+<p>
+Import it into Minecraft and build.
+</p>
 
 </div>
 
 
 
 </div>
+
+
+</section>
+
+
 
 
 
 <footer>
 
-VoxelForge v0.1
+VoxelForge<br>
+
+Minecraft Structure Generator<br><br>
+
+Version 0.3
 
 </footer>
 

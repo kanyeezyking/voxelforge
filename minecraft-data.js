@@ -1,80 +1,99 @@
 const minecraftBlocks = [
 
 {
-name: "Grass Block",
-icon: "🟩",
-category: "building"
+name:"Grass Block",
+icon:"🟩",
+type:"block",
+category:"building"
 },
 
 {
-name: "Stone",
-icon: "⬜",
-category: "building"
+name:"Stone",
+icon:"⬜",
+type:"block",
+category:"building"
 },
 
 {
-name: "Dirt",
-icon: "🟫",
-category: "natural"
+name:"Dirt",
+icon:"🟫",
+type:"block",
+category:"natural"
 },
 
 {
-name: "Oak Log",
-icon: "🪵",
-category: "building"
+name:"Oak Log",
+icon:"🪵",
+type:"block",
+category:"building"
 },
 
 {
-name: "Diamond Block",
-icon: "💎",
-category: "building"
+name:"Diamond Block",
+icon:"💎",
+type:"block",
+category:"building"
 },
 
 {
-name: "Crafting Table",
-icon: "🛠️",
-category: "functional"
+name:"Crafting Table",
+icon:"🛠️",
+type:"block",
+category:"functional"
 },
 
 {
-name: "Command Block",
-icon: "🟧",
-category: "technical"
+name:"Command Block",
+icon:"🟧",
+type:"block",
+category:"technical"
 }
 
 ];
+
 
 
 const minecraftMobs = [
 
 {
 name:"Creeper",
-icon:"👾"
+icon:"👾",
+type:"mob",
+category:"hostile"
 },
 
 {
 name:"Zombie",
-icon:"🧟"
+icon:"🧟",
+type:"mob",
+category:"hostile"
 },
 
 {
 name:"Pig",
-icon:"🐷"
+icon:"🐷",
+type:"mob",
+category:"passive"
 }
 
 ];
+
 
 
 const minecraftEntities = [
 
 {
 name:"Boat",
-icon:"🚣"
+icon:"🚣",
+type:"entity",
+category:"vehicle"
 },
 
 {
 name:"Minecart",
-icon:"🚋"
+icon:"🚋",
+type:"entity",
+category:"vehicle"
 }
 
 ];
